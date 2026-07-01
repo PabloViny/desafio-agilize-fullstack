@@ -1,61 +1,41 @@
-# Desafio Técnico — Banco 🏦
+# Minha Solução — Banco
 
-Bem-vindo(a) ao desafio técnico do **Processo Seletivo Agilize — Estágio em Tecnologia**!
+## Stack
+- **Backend:** Node.js 18+ com TypeScript e Express
+- **Frontend:** React 18 + TypeScript + Vite + Tailwind CSS
 
-Este desafio avalia sua capacidade de transformar **regras de negócio** em um sistema **fullstack**
-funcional, bem organizado e fácil de executar.
+## Pré-requisitos / dependências
+- Node.js 18 ou superior instalado — [nodejs.org](https://nodejs.org)
+- npm (incluso com o Node.js)
 
-> 📄 **A especificação completa está no arquivo [`ESPECIFICACAO.pdf`](./ESPECIFICACAO.pdf).** Leia-a com atenção antes de começar.
->
-> ⏰ **Prazo:** 2 dias corridos — entrega até **00h de 30/06**.
+## Como executar
 
----
+### Backend (API)
+```bash
+cd backend
+npm install
+npm run dev  →  API em http://localhost:3000
+```
 
-## 🎯 Resumo
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev  →  http://localhost:5173
+```
 
-Construa um **Banco** sobre dois tipos de conta (corrente e poupança), respeitando as regras de negócio
-da especificação. A operação **obrigatória** é o **saque**; a **transferência** é **opcional** e conta
-como diferencial.
+## Exemplo de uso
+```
+1. Acesse http://localhost:5173 no navegador.
+2. Clique em uma conta para selecioná-la.
+3. Informe um valor no campo de saque e clique em "Realizar Saque".
+   → A API retorna o novo saldo e uma mensagem de sucesso.
+   → Se o limite for ultrapassado, a API retorna a mensagem de erro da regra de negócio.
+4. Na aba "Transferência", selecione a conta de destino, informe o valor e confirme.
+```
 
-A solução deve ter **duas partes que se comunicam**:
-
-- **Backend (API):** expõe uma API HTTP com as operações (toda a regra de negócio fica aqui).
-- **Frontend:** uma interface web que consome a API e permite realizar as operações e ver os resultados.
-
-## 💻 Linguagens aceitas (backend)
-
-`JavaScript (Node.js)` · `TypeScript (Node.js)` · `Python` · `Ruby` · `PHP` · `Go`
-
-> O **frontend** pode usar HTML/CSS/JavaScript, com ou sem framework.
-
----
-
-## 🚀 Como participar
-
-1. Faça um **fork** deste repositório.
-2. Implemente **backend** e **frontend** no fork (backend em uma das linguagens aceitas).
-3. **Preencha o README** do seu fork seguindo o modelo em [`SUBMISSION.md`](./SUBMISSION.md)
-   (linguagem, pré-requisitos e **passo a passo para subir backend e frontend**).
-4. Faça **commits ao longo do desenvolvimento** — evite um único commit gigante no final.
-5. Envie o **link do seu fork** para **calison@agilize.com.br**.
-
----
-
-## ⚠️ Critério eliminatório
-
-> Projetos que **não executarem** seguindo o README — ou cujo README não permita rodar **backend e
-> frontend** — serão **eliminados**. Backend fora das linguagens aceitas também elimina.
->
-> **Teste o passo a passo em uma máquina/pasta limpa antes de enviar.**
-
----
-
-## ✅ O que será avaliado
-
-- **Funcionamento** — backend e frontend rodam, se comunicam e cumprem as regras de negócio.
-- **Qualidade do código** — clareza, organização, separação de responsabilidades, sem duplicação.
-- **Processo** — histórico de commits coerente e README claro.
-
-Dúvidas: **calison@agilize.com.br**
-
-Boa sorte! 🍀
+## Observações (opcional)
+- Base de dados em memória — os dados são reiniciados ao reiniciar o backend.
+- Conta Corrente: tarifa fixa de R$ 1,00 por operação, cheque especial até R$ -500,00.
+- Conta Poupança: sem tarifa, nunca pode ficar negativa.
+- Transferência implementada como diferencial, com tarifa descontada da conta corrente de origem.
