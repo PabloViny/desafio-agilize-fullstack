@@ -10,11 +10,6 @@ export async function fetchAccounts(): Promise<Account[]> {
   return data;
 }
 
-export async function fetchAccount(id: string): Promise<Account> {
-  const { data } = await api.get<Account>(`/accounts/${id}`);
-  return data;
-}
-
 export async function withdraw(
   id: string,
   amount: number
